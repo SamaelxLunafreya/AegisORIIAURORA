@@ -1,0 +1,2 @@
+# AegisORIIAURORA
+bash/shield/powloka
