@@ -1,0 +1,3 @@
+tts_enabled = True
+voice = female
+silent_mode = False
