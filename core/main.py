@@ -1,7 +1,7 @@
 from voices.tts import TTS
 import os
 
-def load_user_preferences(path="../config/user_preferences.txt"):
+def load_user_preferences(path="config/user_preferences.txt"):
     prefs = {}
     try:
         with open(path, encoding="utf-8") as f:
@@ -29,7 +29,7 @@ def speak_emotion(text, emotion):
         log_tts(f"[{emotion}] {text}")
 
 def log_tts(text):
-    log_dir = "../logs"
+    log_dir = "logs"
     os.makedirs(log_dir, exist_ok=True)
     with open(os.path.join(log_dir, "tts_log.txt"), "a", encoding="utf-8") as f:
         f.write(text + "\n")
@@ -45,12 +45,12 @@ def notify(text, emotion=None):
     print(f"\033[93m[NOTIF]\033[0m {text}")
     log_tts(f"[NOTIF]{'['+emotion+']' if emotion else ''} {text}")
 
-# Wyjaśnienie działania:
-# 1. Ładowanie preferencji użytkownika z pliku user_preferences.txt (np. tts_enabled, voice, silent_mode).
-# 2. Inicjalizacja TTS z wybranym głosem.
-# 3. Funkcje speak i speak_emotion wypowiadają tekst na głos (jeśli TTS włączony) i logują wypowiedzi.
+# Co robi ten plik?
+# 1. Ładuje preferencje użytkownika z pliku config/user_preferences.txt (np. tts_enabled, voice, silent_mode).
+# 2. Inicjalizuje syntezator mowy (TTS) z wybranym głosem.
+# 3. Funkcje speak i speak_emotion wypowiadają tekst na głos (jeśli TTS włączony) i logują wypowiedzi do logs/tts_log.txt.
 # 4. Funkcja notify:
-#    - Jeśli tryb cichy jest wyłączony, wypowiada tekst na głos (z emocją lub bez).
+#    - Jeśli tryb cichy (silent_mode) jest wyłączony, wypowiada tekst na głos (z emocją lub bez).
 #    - Zawsze loguje i wyświetla powiadomienie na ekranie (kolor żółty).
 # 5. Przykłady użycia pokazują, jak wywołać zwykłą wypowiedź, wypowiedź z emocją oraz powiadomienia.
 
