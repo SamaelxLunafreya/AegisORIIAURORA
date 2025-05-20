@@ -45,6 +45,22 @@ def notify(text, emotion=None):
     print(f"\033[93m[NOTIF]\033[0m {text}")
     log_tts(f"[NOTIF]{'['+emotion+']' if emotion else ''} {text}")
 
+# Wyjaśnienie działania:
+# 1. Ładowanie preferencji użytkownika z pliku user_preferences.txt (np. tts_enabled, voice, silent_mode).
+# 2. Inicjalizacja TTS z wybranym głosem.
+# 3. Funkcje speak i speak_emotion wypowiadają tekst na głos (jeśli TTS włączony) i logują wypowiedzi.
+# 4. Funkcja notify:
+#    - Jeśli tryb cichy jest wyłączony, wypowiada tekst na głos (z emocją lub bez).
+#    - Zawsze loguje i wyświetla powiadomienie na ekranie (kolor żółty).
+# 5. Przykłady użycia pokazują, jak wywołać zwykłą wypowiedź, wypowiedź z emocją oraz powiadomienia.
+
+# Możliwości rozbudowy:
+# - Integracja z systemem powiadomień (np. e-mail, SMS, webhook).
+# - Automatyczne rozpoznawanie emocji na podstawie treści.
+# - Obsługa wielu języków i dynamiczna zmiana głosu.
+# - Synchronizacja z serwerem i innymi urządzeniami.
+# - Rozszerzenie logiki o reakcje na zdarzenia systemowe lub z serwera.
+
 # Przykładowe użycie
 if __name__ == "__main__":
     speak("Cześć, to jest test funkcji syntezy mowy.")
